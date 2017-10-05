@@ -1,0 +1,11 @@
+{
+  "name": "wegobucks",
+  "version": "0.0.0",
+  "ignore": [
+    "**/.*",
+    "node_modules"
+  ],
+  "dependencies": {
+    "bootstrap-css-only": "3.0.1"
+  }
+}
