@@ -5,5 +5,5 @@ target/
 dependency-reduced-pom.xml
 src/main/resources/assets/static_src/node_modules
 src/main/resources/assets/static_src/bower_components
-src/main/resources/assets/static
+src/main/resources/assets/static/js
 *.log

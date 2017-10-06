@@ -55,7 +55,7 @@ module.exports = function (grunt) {
             },
             prod: {
                 files: {
-                    'js/bundle.js': ['js/bundle.js']
+                    '../static/js/bundle.js': ['../static/js/bundle.js']
                 }
             }
         },
