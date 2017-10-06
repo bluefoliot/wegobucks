@@ -1,1 +1,1 @@
-web: ./start.sh local.yaml
+web: ./start.sh staging.yaml
