@@ -49,3 +49,4 @@ server:
   connector:
     type: http
     port: 8080
+    
