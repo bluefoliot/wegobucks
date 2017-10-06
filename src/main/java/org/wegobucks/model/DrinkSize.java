@@ -10,6 +10,16 @@ import javax.persistence.Table;
 @Entity
 @Table(name="drink_size")
 public class DrinkSize {
+	
+	public DrinkSize() {
+		
+	}
+	
+	public DrinkSize(String name, String slug, int sizeOrder) {
+		this.name = name;
+		this.slug = slug;
+		this.sizeOrder = sizeOrder;
+	}
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
