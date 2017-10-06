@@ -1,5 +1,6 @@
 package org.wegobucks.resource;
 
+import javax.annotation.security.RolesAllowed;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -42,6 +43,7 @@ public class OrderResource {
 	@GET
 	@Path("/all")
 	@UnitOfWork
+	@RolesAllowed("admin")
 	public Response getAllSales() {
 		SalesResponseBean response = service.getAllSales();
 		return Response.ok(response).build();
@@ -50,6 +52,7 @@ public class OrderResource {
 	@GET
 	@Path("/type/{type}")
 	@UnitOfWork
+	@RolesAllowed("admin")
 	public Response getSalesByType(@PathParam("type") String type) {
 		SalesResponseBean response = service.getSalesByType(type);
 		return Response.ok(response).build();
@@ -58,6 +61,7 @@ public class OrderResource {
 	@GET
 	@Path("/size/{size}")
 	@UnitOfWork
+	@RolesAllowed("admin")
 	public Response getSalesBySize(@PathParam("size") String size) {
 		SalesResponseBean response = service.getSalesBySize(size);
 		return Response.ok(response).build();

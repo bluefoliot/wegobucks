@@ -2,6 +2,7 @@ package org.wegobucks.app;
 
 import java.util.List;
 
+import org.dhatim.dropwizard.jwt.cookie.authentication.JwtCookieAuthBundle;
 import org.hibernate.Session;
 import org.hibernate.context.internal.ManagedSessionContext;
 import org.wegobucks.config.WegobucksConfig;
@@ -13,6 +14,7 @@ import org.wegobucks.model.Drink;
 import org.wegobucks.model.DrinkPrice;
 import org.wegobucks.model.DrinkSize;
 import org.wegobucks.model.Order;
+import org.wegobucks.resource.AuthResource;
 import org.wegobucks.resource.DrinkResource;
 import org.wegobucks.resource.OrderResource;
 import org.wegobucks.service.DrinkService;
@@ -55,8 +57,10 @@ public class WegobucksApp extends Application<WegobucksConfig> {
 		
 		final DrinkResource drinkResource = new DrinkResource(drinkService);
 		final OrderResource orderResource = new OrderResource(orderService);
+		final AuthResource authResource = new AuthResource();
 		env.jersey().register(drinkResource);
 		env.jersey().register(orderResource);
+		env.jersey().register(authResource);
 		
 		env.jersey().setUrlPattern("/api/*");
 	}
@@ -66,6 +70,7 @@ public class WegobucksApp extends Application<WegobucksConfig> {
 		bootstrap.addBundle(hibernate);
 		bootstrap.addBundle(new ViewBundle<WegobucksConfig>());
 		bootstrap.addBundle(new AssetsBundle("/assets", "/", "index.html"));
+		bootstrap.addBundle(JwtCookieAuthBundle.getDefault());
 	}
 
 	private void initDrinkSize() {
