@@ -41,3 +41,11 @@ database:
   
   properties:
     hibernate.hbm2ddl.auto: update
+    
+server:
+  type: simple
+  applicationContextPath: /
+  adminContextPath: /admin
+  connector:
+    type: http
+    port: 8080
