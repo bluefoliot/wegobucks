@@ -3,13 +3,13 @@ database:
   driverClass: org.postgresql.Driver
 
   # the username
-  user: unused
+  user: ${HEROKU_DATABASE_USERNAME}
 
   # the password
-  password: unused
+  password: ${HEROKU_DATABASE_PASSWORD}
 
   # the JDBC URL
-  url: unused
+  url: jdbc:postgresql://${HEROKU_DATABASE_URL}
 
   # any properties specific to your JDBC driver:
   properties:
