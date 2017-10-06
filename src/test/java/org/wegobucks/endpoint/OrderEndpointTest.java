@@ -28,7 +28,6 @@ public class OrderEndpointTest {
 	
 	@Test
 	public void testSales() {
-		ObjectMapper mapper = new ObjectMapper();
 		Client client = new JerseyClientBuilder(rule.getEnvironment()).build("test sales");
 		Response response = client.target(
                 String.format("http://localhost:%d/api/order/all", rule.getLocalPort()))
@@ -36,7 +35,7 @@ public class OrderEndpointTest {
                .get();
 		Assertions.assertThat(response.getStatus()).isEqualTo(401);
 		
-		MultivaluedHashMap<String, String> loginForm = new MultivaluedHashMap<>();
+		MultivaluedHashMap<String, String> loginForm = new MultivaluedHashMap<String, String>();
 		loginForm.add("name", "name");
 		
 		response = client.target(
