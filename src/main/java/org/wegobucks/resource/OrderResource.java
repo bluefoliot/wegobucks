@@ -17,6 +17,11 @@ import org.wegobucks.service.OrderService;
 
 import io.dropwizard.hibernate.UnitOfWork;
 
+/**
+ * @author jonathankurniadi
+ *
+ * Resource for handling order and sales related request
+ */
 @Path("/order")
 @Produces(MediaType.APPLICATION_JSON)
 public class OrderResource {

@@ -16,6 +16,12 @@ import org.wegobucks.model.Drink;
 import org.wegobucks.model.DrinkPrice;
 import org.wegobucks.model.DrinkSize;
 
+
+/**
+ * @author jonathankurniadi
+ *
+ * A singleton service, contains business logic for drink related data.
+ */
 public class DrinkService {
 	
 	private static DrinkService instance;
@@ -36,13 +42,14 @@ public class DrinkService {
 		return instance;
 	}
 	
-	
 	public List<DrinkResponseBean> getAllDrinks() {
 		List<DrinkPrice> priceList = drinkPriceDao.findAll();
 		List<DrinkResponseBean> beans = new ArrayList<DrinkResponseBean>();
 		Map<Integer, DrinkResponseBean> drinkMap = new HashMap<Integer, DrinkResponseBean>();
 		for(DrinkPrice price: priceList) {
 			DrinkResponseBean bean;
+			
+			//add price by size for each drink types
 			if(!drinkMap.containsKey(price.getDrink().getId())) {
 				bean = this.toDrinkBean(price.getDrink());
 				drinkMap.put(price.getDrink().getId(), bean);

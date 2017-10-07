@@ -18,6 +18,12 @@ import org.wegobucks.service.DrinkService;
 
 import io.dropwizard.hibernate.UnitOfWork;
 
+
+/**
+ * @author jonathankurniadi
+ *
+ * Resource for handling drink related request
+ */
 @Path("/drink")
 @Produces(MediaType.APPLICATION_JSON)
 public class DrinkResource {

@@ -13,6 +13,11 @@ import org.wegobucks.model.Drink;
 import org.wegobucks.model.DrinkPrice;
 import org.wegobucks.model.Order;
 
+/**
+ * @author jonathankurniadi
+ *
+ * A singleton service, contains business logic for order and sales related data.
+ */
 public class OrderService {
 
 	private static OrderService instance;
@@ -41,6 +46,7 @@ public class OrderService {
 			return null;
 		}
 		
+		//copy the data instead of joining, to record the name and price at the time
 		Order order = new Order();
 		order.setName(price.getDrink().getName());
 		order.setSize(price.getSize().getName());

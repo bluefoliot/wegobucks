@@ -57,6 +57,7 @@ public class WegobucksApp extends Application<WegobucksConfig> {
 		final DrinkService drinkService = DrinkService.getInstance(drinkPriceDao, drinkSizeDao, drinkDao);
 		final OrderService orderService = OrderService.getInstance(orderDao, drinkPriceDao);
 
+		//pass service to resources instead, to provide additional layer for business logic
 		final DrinkResource drinkResource = new DrinkResource(drinkService);
 		final OrderResource orderResource = new OrderResource(orderService);
 		final AuthResource authResource = new AuthResource();
@@ -187,6 +188,7 @@ public class WegobucksApp extends Application<WegobucksConfig> {
 			price = new DrinkPrice(greenTea, venti, 4.45);
 			drinkPriceDao.create(price);
 
+			//insert null price to simplify things on the front-end
 			price = new DrinkPrice(hotTea, tall, null);
 			drinkPriceDao.create(price);
 

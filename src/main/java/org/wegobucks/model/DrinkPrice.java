@@ -39,6 +39,7 @@ public class DrinkPrice {
 	@JoinColumn(nullable=false)
 	private DrinkSize size;
 	
+	//null means the drink is not available for the particular size
 	@Column(precision=2)
 	private Double price;
 

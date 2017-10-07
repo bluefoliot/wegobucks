@@ -31,6 +31,7 @@ public class DrinkSize {
 	@Column(unique=true, nullable=false)
 	private String slug;
 	
+	//higher order means bigger size
 	@Column(unique=true, nullable=false, name="size_order")
 	private int sizeOrder;
 	

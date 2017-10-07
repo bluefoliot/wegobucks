@@ -16,9 +16,19 @@ import javax.ws.rs.core.Response;
 
 import org.dhatim.dropwizard.jwt.cookie.authentication.DefaultJwtCookiePrincipal;
 
+/**
+ * @author jonathankurniadi
+ * 
+ * Resource for handling authentication
+ */
 @Path("/auth")
 public class AuthResource {
 
+	/**
+	 * @param requestContext
+	 * @param name
+	 * @return a token stored in cookie, for simplicity sake
+	 */
 	@POST
 	@Path("/login")
 	@Consumes(MediaType.APPLICATION_JSON)
