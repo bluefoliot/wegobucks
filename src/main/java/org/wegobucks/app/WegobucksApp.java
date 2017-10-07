@@ -72,7 +72,9 @@ public class WegobucksApp extends Application<WegobucksConfig> {
 	public void initialize(Bootstrap<WegobucksConfig> bootstrap) {
 		bootstrap.addBundle(hibernate);
 		bootstrap.addBundle(new ViewBundle<WegobucksConfig>());
-		bootstrap.addBundle(new AssetsBundle("/assets", "/", "index.html"));
+		bootstrap.addBundle(new AssetsBundle("/assets", "/", "index.html", "home"));
+		bootstrap.addBundle(new AssetsBundle("/assets", "/order", "index.html", "order"));
+		bootstrap.addBundle(new AssetsBundle("/assets", "/sales", "index.html", "sales"));
 		bootstrap.addBundle(JwtCookieAuthBundle.getDefault());
 		bootstrap.setConfigurationSourceProvider(new SubstitutingSourceProvider(
 				bootstrap.getConfigurationSourceProvider(), new EnvironmentVariableSubstitutor()));

@@ -12,7 +12,6 @@ import javax.ws.rs.core.Response;
 import org.wegobucks.api.OrderRequestBean;
 import org.wegobucks.api.OrderResponseBean;
 import org.wegobucks.api.SalesResponseBean;
-import org.wegobucks.dao.OrderDao;
 import org.wegobucks.service.OrderService;
 
 import io.dropwizard.hibernate.UnitOfWork;

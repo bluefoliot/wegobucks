@@ -1,7 +1,5 @@
 package org.wegobucks.api;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 public class OrderRequestBean {
 	
 	private String drink;

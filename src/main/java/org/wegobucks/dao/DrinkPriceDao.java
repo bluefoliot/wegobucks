@@ -6,7 +6,6 @@ import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
-import org.wegobucks.model.Drink;
 import org.wegobucks.model.DrinkPrice;
 
 import io.dropwizard.hibernate.AbstractDAO;
