@@ -8,6 +8,9 @@ To run this project on your local machine, you will need
 * [Java](https://www.java.com/en/download/help/download_options.xml)
 * [Postgresql](http://postgresguide.com/setup/install.html)
 * [Maven](https://maven.apache.org/install.html)
+* [NPM](https://docs.npmjs.com/cli/install)
+* [Bower](https://bower.io/#install-bower)
+* [Grunt](https://gruntjs.com/installing-grunt)
 
 Clone this project to your local machine, and run start.sh. The app is accesible at localhost:8080.
 

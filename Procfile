@@ -1,1 +1,1 @@
-web: ./start.sh staging.yaml
+web: java -jar target/wego-*.jar server staging.yaml
