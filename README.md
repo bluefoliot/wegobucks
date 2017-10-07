@@ -12,7 +12,7 @@ To run this project on your local machine, you will need
 * [Bower](https://bower.io/#install-bower)
 * [Grunt](https://gruntjs.com/installing-grunt)
 
-Clone this project to your local machine, and run start.sh. The app is accesible at localhost:8080.
+Clone this project to your local machine, and run start.sh <config.yaml file>. The app is accesible at localhost:8080.
 
 ## API
 
