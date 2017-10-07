@@ -34,6 +34,13 @@ URL prefix is /order.
 /type/{type}: GET method, only authenticated user. Return orders grouped by the said type.
 /size/{size}: GET method, only authenticated user. Return orders grouped by the said size.
 ```
+
+### Authentication
+URL prefix is /auth
+```
+/login : POST method. Acquire authentication token. Require name in JSON on the request body, i.e {"name": "admin"}.
+```
+
 ## Example
 You can access the app on https://wegobucks.herokuapp.com.
 
