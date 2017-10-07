@@ -16,9 +16,6 @@ const OrderFormContainer = React.createClass({
 
   componentDidMount: function(){
     this.props.dispatch(drinkApi.loadAllDrinks());
-    var drink = this.props.drinks[0];
-    this.setState({drink: drink});
-    this.setState({drinkSlug: drink.slug});
   },
 
   placeOrder: function() {

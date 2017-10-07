@@ -15,6 +15,7 @@ class OrderForm extends React.Component{
                   <div className="form-group">
                     <label>Select your drink</label>
                     <select className="form-control" onChange={this.props.setDrink}>
+                      <option key={-1} value={''}>
                       <For each="drink" index="idx" of={this.props.drinks}>
                         <option value={drink.slug}>
                           {drink.name}
