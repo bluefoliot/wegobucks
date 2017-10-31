@@ -30,6 +30,13 @@ URL prefix for the api is /api. There are three types of API on this app.
 /orders : POST method. Add an order. Require name slug and size slug in JSON on the request body, i.e {"name": "espresso", "size": "tall"}.
 /orders?type={type}&size={size} : GET method, only authenticated user. Return all orders, use filter as needed.
 ```
+
+### Authentication
+URL prefix is /auth
+```
+/login : POST method. Acquire authentication token. Require name in JSON on the request body, i.e {"name": "admin"}.
+```
+
 ## Example
 You can access the app on https://wegobucks.herokuapp.com.
 
