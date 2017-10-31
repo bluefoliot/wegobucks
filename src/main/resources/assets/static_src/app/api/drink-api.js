@@ -5,7 +5,7 @@ const urlPrefix = '/api';
 
 export function loadAllDrinks() {
   return dispatch => {
-    axios.get(urlPrefix+'/drink/all').then(
+    axios.get(urlPrefix+'/drinks').then(
       response => dispatch(menuActions.updateDrinks(response.data))
     );
   }
@@ -13,7 +13,7 @@ export function loadAllDrinks() {
 
 export function loadAllSizes() {
   return dispatch => {
-    axios.get(urlPrefix+'/drink/sizes').then(
+    axios.get(urlPrefix+'/drink-sizes').then(
       response => dispatch(menuActions.updateSizes(response.data))
     );
   }
@@ -21,7 +21,7 @@ export function loadAllSizes() {
 
 export function loadAllTypes() {
   return dispatch => {
-    axios.get(urlPrefix+'/drink/types').then(
+    axios.get(urlPrefix+'/drink-types').then(
       response => dispatch(menuActions.updateDrinkTypes(response.data))
     );
   }

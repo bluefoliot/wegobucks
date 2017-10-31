@@ -7,7 +7,7 @@ const urlPrefix = '/api';
 
 export function placeOrder(drinkSlug, sizeSlug) {
   return dispatch => {
-    axios.post(urlPrefix+'/order/add', {
+    axios.post(urlPrefix+'/orders', {
       drink: drinkSlug,
       size: sizeSlug
     }).then(
@@ -20,7 +20,7 @@ export function placeOrder(drinkSlug, sizeSlug) {
 
 export function loadAllSales() {
   return dispatch => {
-    axios.get(urlPrefix+'/order/all').then(
+    axios.get(urlPrefix+'/orders').then(
       response => {
         if(response.status === 401) {
           dispatch(authActions.promptLogin(true))
@@ -35,7 +35,7 @@ export function loadAllSales() {
 
 export function loadSalesBySize(size) {
   return dispatch => {
-    axios.get(urlPrefix+'/order/size/'+size).then(
+    axios.get(urlPrefix+'/orders?size='+size).then(
       response => {
         if(response.status === 401) {
           dispatch(authActions.promptLogin(true))
@@ -50,7 +50,7 @@ export function loadSalesBySize(size) {
 
 export function loadSalesByType(type) {
   return dispatch => {
-    axios.get(urlPrefix+'/order/type/'+type).then(
+    axios.get(urlPrefix+'/orders?type='+type).then(
       response => {
         if(response.status === 401) {
           dispatch(authActions.promptLogin(true))

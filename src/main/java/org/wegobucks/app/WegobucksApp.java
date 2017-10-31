@@ -16,6 +16,8 @@ import org.wegobucks.model.DrinkSize;
 import org.wegobucks.model.Order;
 import org.wegobucks.resource.AuthResource;
 import org.wegobucks.resource.DrinkResource;
+import org.wegobucks.resource.DrinkSizeResource;
+import org.wegobucks.resource.DrinkTypeResource;
 import org.wegobucks.resource.OrderResource;
 import org.wegobucks.service.DrinkService;
 import org.wegobucks.service.OrderService;
@@ -59,9 +61,13 @@ public class WegobucksApp extends Application<WegobucksConfig> {
 
 		//pass service to resources instead, to provide additional layer for business logic
 		final DrinkResource drinkResource = new DrinkResource(drinkService);
+		final DrinkTypeResource drinkTypeResource = new DrinkTypeResource(drinkService);
+		final DrinkSizeResource drinkSizeResource = new DrinkSizeResource(drinkService);
 		final OrderResource orderResource = new OrderResource(orderService);
 		final AuthResource authResource = new AuthResource();
 		env.jersey().register(drinkResource);
+		env.jersey().register(drinkTypeResource);
+		env.jersey().register(drinkSizeResource);
 		env.jersey().register(orderResource);
 		env.jersey().register(authResource);
 

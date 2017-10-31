@@ -24,7 +24,7 @@ public class IntegrationTest {
 	@Test
 	public void testGetAllDrinks() {
 		Client client = new JerseyClientBuilder(rule.getEnvironment()).build("test drinks");
-		String url = String.format("http://localhost:%d/api/drink/all", rule.getLocalPort());
+		String url = String.format("http://localhost:%d/api/drinks", rule.getLocalPort());
 		Response response = client.target(url).request().get();
 		Assertions.assertThat(response.getStatus()).isEqualTo(200);
 	}
@@ -32,7 +32,7 @@ public class IntegrationTest {
 	@Test
 	public void testGetAllTypes() {
 		Client client = new JerseyClientBuilder(rule.getEnvironment()).build("test types");
-		String url = String.format("http://localhost:%d/api/drink/types", rule.getLocalPort());
+		String url = String.format("http://localhost:%d/api/drink-types", rule.getLocalPort());
 		Response response = client.target(url).request().get();
 		Assertions.assertThat(response.getStatus()).isEqualTo(200);
 	}
@@ -40,7 +40,7 @@ public class IntegrationTest {
 	@Test
 	public void testGetAllSizes() {
 		Client client = new JerseyClientBuilder(rule.getEnvironment()).build("test sizes");
-		String url = String.format("http://localhost:%d/api/drink/sizes", rule.getLocalPort());
+		String url = String.format("http://localhost:%d/api/drink-sizes", rule.getLocalPort());
 		Response response = client.target(url).request().get();
 		Assertions.assertThat(response.getStatus()).isEqualTo(200);
 	}
@@ -49,7 +49,7 @@ public class IntegrationTest {
 	public void testUnauthenticatedSales() {
 		Client client = new JerseyClientBuilder(rule.getEnvironment()).build("test unauthenticated sales");
 		Response response = client.target(
-                String.format("http://localhost:%d/api/order/all", rule.getLocalPort()))
+                String.format("http://localhost:%d/api/orders", rule.getLocalPort()))
                .request()
                .get();
 		Assertions.assertThat(response.getStatus()).isEqualTo(401);
@@ -81,7 +81,7 @@ public class IntegrationTest {
                .post(Entity.json(loginForm));
 		
 		response = client.target(
-                String.format("http://localhost:%d/api/order/all", rule.getLocalPort()))
+                String.format("http://localhost:%d/api/orders", rule.getLocalPort()))
                .request()
                .cookie(response.getCookies().get("sessionToken"))
                .get();
@@ -100,7 +100,7 @@ public class IntegrationTest {
                .post(Entity.json(loginForm));
 		
 		response = client.target(
-                String.format("http://localhost:%d/api/order/type/coffee", rule.getLocalPort()))
+                String.format("http://localhost:%d/api/orders?type=coffee", rule.getLocalPort()))
                .request()
                .cookie(response.getCookies().get("sessionToken"))
                .get();
@@ -119,7 +119,7 @@ public class IntegrationTest {
                .post(Entity.json(loginForm));
 		
 		response = client.target(
-                String.format("http://localhost:%d/api/order/size/tall", rule.getLocalPort()))
+                String.format("http://localhost:%d/api/orders?size=tall", rule.getLocalPort()))
                .request()
                .cookie(response.getCookies().get("sessionToken"))
                .get();

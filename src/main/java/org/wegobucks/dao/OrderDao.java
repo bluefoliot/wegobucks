@@ -2,6 +2,7 @@ package org.wegobucks.dao;
 
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
 import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
@@ -29,15 +30,14 @@ public class OrderDao extends AbstractDAO<Order> {
 		return list(criteria);
 	}
 	
-	public List<Order> findByType(String type) {
+	public List<Order> find(String type, String size) {
 		Criteria criteria = criteria();
-		criteria.add(Restrictions.eq("type", type));
-		return list(criteria);
-	}
-	
-	public List<Order> findBySize(String size) {
-		Criteria criteria = criteria();
-		criteria.add(Restrictions.eq("sizeSlug", size));
+		if(StringUtils.isNotBlank(type)) {
+			criteria.add(Restrictions.eq("type", type));
+		}
+		if(StringUtils.isNotBlank(size)) {
+			criteria.add(Restrictions.eq("sizeSlug", size));
+		}
 		return list(criteria);
 	}
 

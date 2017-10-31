@@ -14,22 +14,22 @@ import io.dropwizard.hibernate.UnitOfWork;
 /**
  * @author jonathankurniadi
  *
- * Resource for handling drink related request
+ * Resource for handling drink sizes related request
  */
-@Path("/drinks")
+@Path("/drink-sizes")
 @Produces(MediaType.APPLICATION_JSON)
-public class DrinkResource {
+public class DrinkSizeResource {
 	
 	private DrinkService service;
 	
-	public DrinkResource(DrinkService service) {
+	public DrinkSizeResource(DrinkService service) {
 		this.service = service;
 	}
 	
 	@GET
 	@UnitOfWork
-	public Response getDrinks() {
-		return Response.ok(service.getAllDrinks()).build();
+	public Response getDrinkSizes() {
+		return Response.ok(service.getAllSizes()).build();
 	}
-	
+
 }

@@ -3,6 +3,7 @@ package org.wegobucks.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
 import org.wegobucks.api.OrderRequestBean;
 import org.wegobucks.api.OrderResponseBean;
 import org.wegobucks.api.SalesResponseBean;
@@ -68,33 +69,16 @@ public class OrderService {
 		return bean;
 	}
 	
-	public SalesResponseBean getAllSales() {
+	public SalesResponseBean getSales(String type, String size) {
 		SalesResponseBean salesBean = new SalesResponseBean();
-		List<Order> orders = orderDao.findAll();
-		List<OrderResponseBean> beans = new ArrayList<OrderResponseBean>();
-		for(Order order: orders) {
-			OrderResponseBean bean = this.buildResponseBean(order);
-			beans.add(bean);
+		List<Order> orders;
+		
+		if(StringUtils.isBlank(type) && StringUtils.isBlank(size)) {
+			orders = orderDao.findAll();
+		} else {
+			orders = orderDao.find(type, size);
 		}
-		salesBean.setOrderResponseBean(beans);
-		return salesBean;
-	}
-	
-	public SalesResponseBean getSalesByType(String type) {
-		SalesResponseBean salesBean = new SalesResponseBean();
-		List<Order> orders = orderDao.findByType(type);
-		List<OrderResponseBean> beans = new ArrayList<OrderResponseBean>();
-		for(Order order: orders) {
-			OrderResponseBean bean = this.buildResponseBean(order);
-			beans.add(bean);
-		}
-		salesBean.setOrderResponseBean(beans);
-		return salesBean;
-	}
-	
-	public SalesResponseBean getSalesBySize(String size) {
-		SalesResponseBean salesBean = new SalesResponseBean();
-		List<Order> orders = orderDao.findBySize(size);
+		
 		List<OrderResponseBean> beans = new ArrayList<OrderResponseBean>();
 		for(Order order: orders) {
 			OrderResponseBean bean = this.buildResponseBean(order);

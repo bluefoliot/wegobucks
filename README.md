@@ -19,20 +19,16 @@ Clone this project to your local machine, and run start.sh <config.yaml file>. T
 URL prefix for the api is /api. There are three types of API on this app.
 
 ### Drink
-URL prefix is /drink.
 ```
-/all : GET method. Return the price list.
-/sizes : GET method. Return all drink sizes.
-/types : GET method. Return all drink types.
+/drinks : GET method. Return the price list.
+/drink-sizes : GET method. Return all drink sizes.
+/drink-types : GET method. Return all drink types.
 ```
 
 ### Order
-URL prefix is /order.
 ```
-/add : POST method. Add an order. Require name slug and size slug in JSON on the request body, i.e {"name": "espresso", "size": "tall"}.
-/all : GET method, only authenticated user. Return all orders made.
-/type/{type}: GET method, only authenticated user. Return orders grouped by the said type.
-/size/{size}: GET method, only authenticated user. Return orders grouped by the said size.
+/orders : POST method. Add an order. Require name slug and size slug in JSON on the request body, i.e {"name": "espresso", "size": "tall"}.
+/orders?type={type}&size={size} : GET method, only authenticated user. Return all orders, use filter as needed.
 ```
 ## Example
 You can access the app on https://wegobucks.herokuapp.com.
